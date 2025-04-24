@@ -6,6 +6,8 @@
 /storage/*.key
 /storage/pail
 /vendor
+/database
+/public/diagrama.dbml
 .env
 .env.backup
 .env.production
@@ -21,4 +23,3 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
-/.database
