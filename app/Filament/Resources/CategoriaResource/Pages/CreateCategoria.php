@@ -40,4 +40,21 @@ class CreateCategoria extends CreateRecord
             $this->record->delete();
         }
     }
+
+    /* En este método se puede personalizar los botones de la vista para Crear Categoría */
+    protected function getFormActions(): array
+    {
+        return [
+            $this->getCreateFormAction()
+                ->label('Registrar')
+                /* ->color('success') */,
+
+            /* $this->getCreateAnotherFormAction()
+            ->label('Guardar y nuevo'),
+            */
+            
+            $this->getCancelFormAction()
+                ->label('Cancelar')
+        ];
+    }
 }

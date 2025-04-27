@@ -6,7 +6,6 @@
 /storage/*.key
 /storage/pail
 /vendor
-/database
 /public/diagrama.dbml
 .env
 .env.backup

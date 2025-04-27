@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\CategoriaResource\Pages;
 use App\Filament\Resources\CategoriaResource\RelationManagers;
 use App\Models\Categoria;
+use Filament\Notifications\Notification;
 use Filament\Forms;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -128,7 +129,18 @@ class CategoriaResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make()->label('Acciones'),
+                Tables\Actions\EditAction::make()
+                    ->button()
+                    ->color('success'),
+                Tables\Actions\DeleteAction::make()
+                    ->button()
+                    ->color('danger')
+                    ->successNotification(
+                        Notification::make()
+                            ->title('Categoría eliminada')
+                            ->body('"La categoría se ha eliminado con éxito.')
+                            ->success()
+                    )
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
