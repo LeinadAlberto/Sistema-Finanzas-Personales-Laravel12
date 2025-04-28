@@ -2,6 +2,8 @@
 
 namespace App\Providers\Filament;
 
+use Filament\Facades\Filament;
+use Filament\Support\Assets\Css;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -55,4 +57,5 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ]);
     }
+
 }
