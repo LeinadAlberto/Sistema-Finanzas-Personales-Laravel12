@@ -5,12 +5,13 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\CategoriaResource\Pages;
 use App\Filament\Resources\CategoriaResource\RelationManagers;
 use App\Models\Categoria;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Notifications\Notification;
 use Filament\Forms;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -126,7 +127,13 @@ class CategoriaResource extends Resource
                 return null;
             })
             ->filters([
-                //
+                SelectFilter::make('tipo')
+                    ->options([
+                        'ingreso' => 'Ingreso',
+                        'gasto' => 'Gasto'
+                    ])
+                    ->placeholder('Filtrar por tipo de categoría')
+                    ->label('Tipo')
             ])
             ->actions([
                 Tables\Actions\EditAction::make()
